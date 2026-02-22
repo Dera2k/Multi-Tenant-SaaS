@@ -8,9 +8,30 @@ import { MembershipsModule } from './memberships/memberships.module';
 import { RolesModule } from './roles/roles.module';
 import { WorkspacesModule } from './workspaces/workspaces.module';
 import { ProjectsModule } from './projects/projects.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  imports: [AuthModule, UsersModule, UnitsModule, MembershipsModule, RolesModule, WorkspacesModule, ProjectsModule],
+  imports: [AuthModule, 
+    UsersModule, 
+    UnitsModule, 
+    MembershipsModule, 
+    RolesModule, 
+    WorkspacesModule, 
+    ProjectsModule, TypeOrmModule.forRootAsync({
+      imports: [],
+      inject: [],
+      useFactory: () => ({type: 'postgres',
+        entities: [],
+        synchronize: true,
+        port: 5432,
+        username: 'postgres',
+        password: 'derapassword',
+        host: 'localhost',
+        database: 'multi-tenenat-collab'
+      })
+    })
+  ],
+
   controllers: [AppController],
   providers: [AppService],
 })
