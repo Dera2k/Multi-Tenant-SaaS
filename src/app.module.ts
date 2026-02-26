@@ -5,7 +5,6 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { UnitsModule } from './units/units.module';
 import { MembershipsModule } from './memberships/memberships.module';
-import { RolesModule } from './roles/roles.module';
 import { WorkspacesModule } from './workspaces/workspaces.module';
 import { ProjectsModule } from './projects/projects.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -15,7 +14,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     UsersModule, 
     UnitsModule, 
     MembershipsModule, 
-    RolesModule, 
     WorkspacesModule, 
     ProjectsModule, TypeOrmModule.forRootAsync({
       imports: [],
